@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Zaino & Leathers · Botas vaqueras artesanales</title>
+<meta name="description" content="Botas vaqueras de piel auténtica que fusionan tradición artesanal mexicana con estilo contemporáneo y exclusivo." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Karla:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#fbf7f1;
+    --fg:#1a1410;
+    --muted:#6b5d52;
+    --primary:#5c2018;       /* burgundy */
+    --amber:#c2872a;
+    --gold:#d9a441;
+    --line:rgba(26,20,16,.12);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Karla',system-ui,sans-serif;
+    color:var(--fg);background:var(--bg);
+    line-height:1.6;-webkit-font-smoothing:antialiased;
+  }
+  img{display:block;max-width:100%;height:auto}
+  a{color:inherit;text-decoration:none}
+  h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:300;line-height:1.05}
+  .container{max-width:1200px;margin:0 auto;padding:0 1.5rem}
+  .eyebrow{font-size:.7rem;letter-spacing:.4em;text-transform:uppercase;color:var(--amber)}
+  .italic{font-style:italic;color:var(--gold)}
+
+  /* NAV */
+  header{position:absolute;top:0;left:0;right:0;z-index:10}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:1.25rem 1.5rem;max-width:1200px;margin:0 auto}
+  .logo{font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:#fff;letter-spacing:.15em;text-transform:uppercase}
+  .nav ul{display:flex;gap:2.5rem;list-style:none}
+  .nav ul a{color:rgba(255,255,255,.85);font-size:.75rem;letter-spacing:.2em;text-transform:uppercase}
+  .nav ul a:hover{color:var(--gold)}
+  .btn{display:inline-block;padding:.9rem 1.8rem;font-size:.75rem;letter-spacing:.25em;text-transform:uppercase;cursor:pointer;transition:.25s}
+  .btn-gold{background:var(--gold);color:var(--fg)}
+  .btn-gold:hover{opacity:.88}
+  .btn-ghost{border:1px solid rgba(255,255,255,.4);color:#fff}
+  .btn-ghost:hover{background:#fff;color:var(--fg)}
+  .nav .btn-ghost{padding:.7rem 1.4rem}
+  @media(max-width:768px){.nav ul{display:none}}
+
+  /* HERO */
+  .hero{position:relative;min-height:100vh;overflow:hidden;background:#1a1410}
+  .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55}
+  .hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(20,12,8,.85),rgba(20,12,8,.3) 60%,transparent),linear-gradient(to top,rgba(20,12,8,.7),transparent)}
+  .hero-content{position:relative;max-width:1200px;margin:0 auto;padding:11rem 1.5rem 8rem;color:#fff}
+  .hero-content .eyebrow{margin-bottom:1.5rem;display:block}
+  .hero h1{font-size:clamp(2.8rem,7vw,6rem);max-width:14ch}
+  .hero p{margin-top:2rem;max-width:32rem;color:rgba(255,255,255,.85);font-size:1.05rem}
+  .hero .actions{margin-top:2.5rem;display:flex;flex-wrap:wrap;gap:1rem}
+
+  /* SECTIONS */
+  section{padding:6rem 0}
+  .section-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:1.5rem;margin-bottom:3rem}
+  .section-head h2{font-size:clamp(2.2rem,4.5vw,3.6rem);max-width:18ch}
+  .section-head p{max-width:28rem;color:var(--muted)}
+  .divider{height:1px;background:linear-gradient(to right,transparent,var(--gold),transparent);margin:0 0 3rem}
+
+  /* COLLECTION */
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem 2rem}
+  @media(max-width:1024px){.grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:600px){.grid{grid-template-columns:1fr}}
+  .card{cursor:pointer}
+  .card .img{position:relative;overflow:hidden;aspect-ratio:4/5;background:#eee;margin-bottom:1.1rem}
+  .card .img img{width:100%;height:100%;object-fit:cover;transition:transform .7s ease}
+  .card:hover .img img{transform:scale(1.05)}
+  .tag{position:absolute;top:1rem;left:1rem;background:rgba(251,247,241,.92);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;padding:.4rem .8rem}
+  .card-meta{display:flex;justify-content:space-between;gap:1rem;align-items:start}
+  .card h3{font-family:'Cormorant Garamond',serif;font-size:1.6rem}
+  .card-meta small{color:var(--muted);font-size:.85rem}
+  .price{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--primary);white-space:nowrap}
+  .center-link{text-align:center;margin-top:4rem}
+  .center-link a{font-size:.8rem;letter-spacing:.3em;text-transform:uppercase;border-bottom:1px solid var(--primary);padding-bottom:.4rem}
+  .center-link a:hover{color:var(--primary)}
+
+  /* CRAFT */
+  .craft{background:var(--fg);color:#fff}
+  .craft-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+  @media(max-width:900px){.craft-grid{grid-template-columns:1fr}}
+  .craft-img{position:relative}
+  .craft-img img{width:100%;height:600px;object-fit:cover}
+  .badge{position:absolute;bottom:-1.5rem;right:-1.5rem;background:var(--gold);color:var(--fg);padding:1.5rem;max-width:200px}
+  .badge p:first-child{font-family:'Cormorant Garamond',serif;font-size:2.5rem;line-height:1}
+  .badge p:last-child{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;margin-top:.4rem}
+  @media(max-width:900px){.badge{display:none}}
+  .craft h2{font-size:clamp(2.2rem,4.5vw,3.6rem);margin-top:1.5rem}
+  .craft .lead{margin-top:2rem;color:rgba(255,255,255,.75);font-size:1.05rem}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:3rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.15)}
+  .stats div p:first-child{font-family:'Cormorant Garamond',serif;font-size:2.4rem;color:var(--gold)}
+  .stats div p:last-child{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-top:.5rem}
+
+  /* STORY */
+  .story{text-align:center;background:#f3ece1}
+  .story blockquote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.6rem,3.5vw,2.6rem);max-width:42rem;margin:0 auto;color:var(--fg);line-height:1.3}
+  .story cite{display:block;margin-top:2rem;font-style:normal;font-size:.75rem;letter-spacing:.3em;text-transform:uppercase;color:var(--primary)}
+
+  /* FOOTER */
+  footer{background:var(--fg);color:rgba(255,255,255,.7);padding:4rem 0 2rem}
+  .foot-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem}
+  @media(max-width:768px){.foot-grid{grid-template-columns:1fr 1fr}}
+  footer h4{font-family:'Cormorant Garamond',serif;color:#fff;font-size:1.3rem;margin-bottom:1rem}
+  footer p,footer a{font-size:.85rem;line-height:1.8}
+  footer a:hover{color:var(--gold)}
+  .copy{margin-top:3rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.12);text-align:center;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a href="#" class="logo">Zaino</a>
+    <nav><ul>
+      <li><a href="#coleccion">Colección</a></li>
+      <li><a href="#artesania">Artesanía</a></li>
+      <li><a href="#historia">Historia</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul></nav>
+    <a href="#coleccion" class="btn btn-ghost">Comprar</a>
+  </div>
+</header>
+
+<section class="hero">
+  <img class="hero-img" src="assets/hero-boots.jpg" alt="Botas vaqueras Zaino artesanales" />
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="eyebrow">Zaino & Leathers · Hecho en México</span>
+    <h1>Cada par <span class="italic">cuenta una historia.</span></h1>
+    <p>Botas vaqueras de piel auténtica que fusionan la tradición artesanal mexicana con un estilo contemporáneo y exclusivo.</p>
+    <div class="actions">
+      <a href="#coleccion" class="btn btn-gold">Ver colección</a>
+      <a href="#artesania" class="btn btn-ghost">Nuestra artesanía</a>
+    </div>
+  </div>
+</section>
+
+<section id="coleccion">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow" style="color:var(--primary);margin-bottom:1rem">La Colección</p>
+        <h2>Diseños <span class="italic" style="font-style:italic;color:var(--primary)">exclusivos</span>,<br/>piel auténtica.</h2>
+      </div>
+      <p>Cuatro piezas que definen la temporada. Cada bota es esculpida a mano por maestros artesanos en nuestro taller de León, Guanajuato.</p>
+    </div>
+    <div class="divider"></div>
+    <div class="grid">
+      <article class="card">
+        <div class="img"><span class="tag">Edición Limitada</span><img src="assets/boot-1.jpg" alt="Borgoña Real"/></div>
+        <div class="card-meta"><div><h3>Borgoña Real</h3><small>Bota Alta · Piel Vacuno</small></div><p class="price">$4,800</p></div>
+      </article>
+      <article class="card">
+        <div class="img"><span class="tag">Bestseller</span><img src="assets/boot-2.jpg" alt="Caramelo Sierra"/></div>
+        <div class="card-meta"><div><h3>Caramelo Sierra</h3><small>Punta Cuadrada · Caramelo</small></div><p class="price">$3,950</p></div>
+      </article>
+      <article class="card">
+        <div class="img"><span class="tag">Hecho a Mano</span><img src="assets/boot-3.jpg" alt="Floral Cobre"/></div>
+        <div class="card-meta"><div><h3>Floral Cobre</h3><small>Bordado Hilo de Oro</small></div><p class="price">$5,200</p></div>
+      </article>
+      <article class="card">
+        <div class="img"><span class="tag">Exótico</span><img src="assets/boot-4.jpg" alt="Noche Oaxaca"/></div>
+        <div class="card-meta"><div><h3>Noche Oaxaca</h3><small>Avestruz · Punta Aguda</small></div><p class="price">$6,400</p></div>
+      </article>
+    </div>
+    <div class="center-link"><a href="#contacto">Ver toda la colección →</a></div>
+  </div>
+</section>
+
+<section id="artesania" class="craft">
+  <div class="container">
+    <div class="craft-grid">
+      <div class="craft-img">
+        <img src="assets/craftsman.jpg" alt="Maestro artesano trabajando una bota Zaino"/>
+        <div class="badge"><p>42</p><p>Pasos a mano por par</p></div>
+      </div>
+      <div>
+        <p class="eyebrow">Artesanía</p>
+        <h2>Tradición que se <span class="italic">siente</span> en cada paso.</h2>
+        <p class="lead">Mientras otras marcas siguen tendencias, nosotros honramos un oficio centenario. Cortes, colores y grabados originales, ejecutados por manos que llevan generaciones perfeccionando el arte de la bota vaquera.</p>
+        <div class="stats">
+          <div><p>100%</p><p>Piel auténtica</p></div>
+          <div><p>3</p><p>Generaciones</p></div>
+          <div><p>∞</p><p>Personalización</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="historia" class="story">
+  <div class="container">
+    <blockquote>"Cada bota Zaino es un pedazo de México que camina contigo — historia, oficio y carácter en piel auténtica."</blockquote>
+    <cite>— Zaino & Leathers</cite>
+  </div>
+</section>
+
+<footer id="contacto">
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <h4>Zaino & Leathers</h4>
+        <p>S.A. de C.V.<br/>Botas vaqueras hechas a mano en México.</p>
+      </div>
+      <div>
+        <h4>Visítanos</h4>
+        <p>Blvd. Artesanal 123<br/>León, Guanajuato<br/>México</p>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <p><a href="mailto:hola@zainoleathers.mx">hola@zainoleathers.mx</a><br/><a href="tel:+5214771234567">+52 477 123 4567</a></p>
+      </div>
+      <div>
+        <h4>Síguenos</h4>
+        <p><a href="#">Instagram</a><br/><a href="#">Facebook</a><br/><a href="#">TikTok</a></p>
+      </div>
+    </div>
+    <p class="copy">© 2026 Zaino & Leathers · Hecho con orgullo en México</p>
+  </div>
+</footer>
+
+</body>
+</html>
